@@ -1,36 +1,25 @@
-aa.sh - Status Line - aa and voilá!
------------------------------------
+clima.sh - Previsão do Tempo para cidades do Brasil
+---------------------------------------------------
 
-Type aa.sh and bash will return a status line like this:
+Utilize a linha de comandos para obter o clima da cidade desejada.
 
-
-```
-[C:My_wifi] [L:0.60] [D:57%] [M:150M] [S:Mute] [B:50%] [01.09.2017 15:07]
-```
-This features:
-- C: Network connected to
-- L: CPU Load
-- D: Disk usage
-- M: Memory usage
-- S: Sound Level
-- B: Battery Level
-- Date and time
-
-You can use it with watch to have a "top in line" application:
+Utilização:
 
 ```
-$ watch -n 1 aa.sh
+$ clima.sh [cidade] [estado]
 ```
 
-Or pipe it into other software, like: i3bar on i3wm, gnu/screen and tmux.
+- Caso o estado seja omitido, assume-se "SP".
+- Caso a cidade seja omitida, assume-se "Indaiatuba".
+- Cidades com nome composto devem usar "", Ex.: ./clima.sh "Campos do Jordão".
 
-Of course, you SHOULD modify it to your Linux distro or *nix system.
+- Requer o browser w3m.
 
 Screenshot
 ----------
-In this example I've symbolic linked aa to aa.sh, now I am addicted to aa...
+Exemplo em ação.
 
-![Example](images/1.png)
+![Example](images/clima.gif)
 
 
 
