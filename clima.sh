@@ -5,6 +5,14 @@
 # Autor        : Rahul Martim Juliato (rahul.juliato@gmail.com)
 #
 # Versão 1     : Inicial (18.09.2016)
+# Versão 2     : Linux e macos (14.06.2019)
+
+case "$OSTYPE" in
+  linux*)   CMD_SED="sed" ;;
+  darwin*)  CMD_SED="gsed" ;; 
+  *)        echo "OS não suportado" && exit 1 ;;
+esac
+
 
 ESTADO="sp"
 CIDADE="indaiatuba"
@@ -20,5 +28,8 @@ CIDADE="indaiatuba"
 URL="http://tempo.folha.uol.com.br/"$ESTADO"/"$CIDADE""
 
 echo -e "\nPrevisão do tempo para: "$CIDADE"-"$ESTADO""
-w3m -dump "$URL" | sed -n "/CINCO/,/CINCO/p" | sed -n "/\//,+2p"
+
+w3m -dump "$URL" | $CMD_SED -n "/CINCO/,/CINCO/p" | $CMD_SED -n "/\//,+2p"
+
 echo
+
